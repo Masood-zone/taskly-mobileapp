@@ -24,7 +24,6 @@ const TaskDetailsScreen = ({ route, navigation }: any) => {
     const foundTask = tasks.find((t) => t.id === taskId);
     setTask(foundTask || null);
   }, [tasks, taskId]);
-  console.log("tasks", tasks);
 
   const handleMarkCompleted = async () => {
     if (!task) return;
