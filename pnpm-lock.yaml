@@ -26,6 +26,15 @@ importers:
       expo:
         specifier: ~53.0.20
         version: 53.0.20(@babel/core@7.28.3)(@expo/metro-runtime@5.0.4(react-native@0.79.5(@babel/core@7.28.3)(@react-native-community/cli@12.3.2)(@types/react@19.0.14)(react@19.0.0)))(graphql@15.8.0)(react-native@0.79.5(@babel/core@7.28.3)(@react-native-community/cli@12.3.2)(@types/react@19.0.14)(react@19.0.0))(react@19.0.0)
+      expo-constants:
+        specifier: ~17.1.7
+        version: 17.1.7(expo@53.0.20(@babel/core@7.28.3)(@expo/metro-runtime@5.0.4(react-native@0.79.5(@babel/core@7.28.3)(@react-native-community/cli@12.3.2)(@types/react@19.0.14)(react@19.0.0)))(graphql@15.8.0)(react-native@0.79.5(@babel/core@7.28.3)(@react-native-community/cli@12.3.2)(@types/react@19.0.14)(react@19.0.0))(react@19.0.0))(react-native@0.79.5(@babel/core@7.28.3)(@react-native-community/cli@12.3.2)(@types/react@19.0.14)(react@19.0.0))
+      expo-font:
+        specifier: ~13.3.2
+        version: 13.3.2(expo@53.0.20(@babel/core@7.28.3)(@expo/metro-runtime@5.0.4(react-native@0.79.5(@babel/core@7.28.3)(@react-native-community/cli@12.3.2)(@types/react@19.0.14)(react@19.0.0)))(graphql@15.8.0)(react-native@0.79.5(@babel/core@7.28.3)(@react-native-community/cli@12.3.2)(@types/react@19.0.14)(react@19.0.0))(react@19.0.0))(react@19.0.0)
+      expo-linking:
+        specifier: ~7.1.7
+        version: 7.1.7(expo@53.0.20(@babel/core@7.28.3)(@expo/metro-runtime@5.0.4(react-native@0.79.5(@babel/core@7.28.3)(@react-native-community/cli@12.3.2)(@types/react@19.0.14)(react@19.0.0)))(graphql@15.8.0)(react-native@0.79.5(@babel/core@7.28.3)(@react-native-community/cli@12.3.2)(@types/react@19.0.14)(react@19.0.0))(react@19.0.0))(react-native@0.79.5(@babel/core@7.28.3)(@react-native-community/cli@12.3.2)(@types/react@19.0.14)(react@19.0.0))(react@19.0.0)
       expo-router:
         specifier: ^5.1.4
         version: 5.1.4(g7ohsk6iakweybvfrh6uthqnh4)
