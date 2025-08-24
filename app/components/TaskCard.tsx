@@ -1,35 +1,51 @@
-import type React from "react"
-import { View, Text, TouchableOpacity, StyleSheet } from "react-native"
-import { Ionicons } from "@expo/vector-icons"
-import type { Task } from "../contexts/tasks/TasksContext"
+import { Ionicons } from "@expo/vector-icons";
+import type React from "react";
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import type { Task } from "../contexts/tasks/TasksContext";
 
 interface TaskCardProps {
-  task: Task
-  onPress: () => void
+  task: Task;
+  onPress: () => void;
 }
 
 const TaskCard: React.FC<TaskCardProps> = ({ task, onPress }) => {
-  const isOverdue = task.status === "overdue"
-  const isCompleted = task.status === "completed"
+  const isOverdue = task.status === "overdue";
+  const isCompleted = task.status === "completed";
 
   return (
     <TouchableOpacity style={styles.container} onPress={onPress}>
       <View style={styles.header}>
         <View style={styles.labelContainer}>
-          <View style={[styles.labelIcon, { backgroundColor: task.label.color }]}>
+          <View
+            style={[styles.labelIcon, { backgroundColor: task.label.color }]}
+          >
             <Ionicons name={task.label.icon as any} size={12} color="#fff" />
           </View>
           <Text style={styles.labelText}>{task.label.name}</Text>
         </View>
 
-        <View style={[styles.statusBadge, isCompleted && styles.completedBadge, isOverdue && styles.overdueBadge]}>
-          <Text style={[styles.statusText, isCompleted && styles.completedText, isOverdue && styles.overdueText]}>
+        <View
+          style={[
+            styles.statusBadge,
+            isCompleted && styles.completedBadge,
+            isOverdue && styles.overdueBadge,
+          ]}
+        >
+          <Text
+            style={[
+              styles.statusText,
+              isCompleted && styles.completedText,
+              isOverdue && styles.overdueText,
+            ]}
+          >
             {task.status}
           </Text>
         </View>
       </View>
 
-      <Text style={[styles.title, isCompleted && styles.completedTitle]}>{task.title}</Text>
+      <Text style={[styles.title, isCompleted && styles.completedTitle]}>
+        {task.title}
+      </Text>
 
       <Text style={styles.description} numberOfLines={2}>
         {task.description}
@@ -38,14 +54,18 @@ const TaskCard: React.FC<TaskCardProps> = ({ task, onPress }) => {
       <View style={styles.footer}>
         <View style={styles.dateContainer}>
           <Ionicons name="calendar-outline" size={14} color="#666" />
-          <Text style={styles.dateText}>{task.dueDate.toLocaleDateString()}</Text>
+          <Text style={styles.dateText}>
+            {task.dueDate.toLocaleDateString()}
+          </Text>
         </View>
 
-        {isCompleted && <Ionicons name="checkmark-circle" size={20} color="#34c759" />}
+        {isCompleted && (
+          <Ionicons name="checkmark-circle" size={20} color="#34c759" />
+        )}
       </View>
     </TouchableOpacity>
-  )
-}
+  );
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -53,10 +73,8 @@ const styles = StyleSheet.create({
     borderRadius: 12,
     padding: 16,
     marginBottom: 12,
-    shadowColor: "#000",
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
+    // @ts-ignore
+    boxShadow: "0px 2px 4px rgba(0,0,0,0.1)",
     elevation: 3,
   },
   header: {
@@ -136,6 +154,6 @@ const styles = StyleSheet.create({
     color: "#666",
     marginLeft: 4,
   },
-})
+});
 
-export default TaskCard
+export default TaskCard;

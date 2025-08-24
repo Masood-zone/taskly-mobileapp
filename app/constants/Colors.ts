@@ -11,4 +11,6 @@ export const Colors = {
   lightGray: "#e1e5e9",
   white: "#fff",
   black: "#000",
-}
+};
+
+export default Colors;

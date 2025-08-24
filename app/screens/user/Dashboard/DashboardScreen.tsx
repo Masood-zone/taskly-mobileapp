@@ -1,24 +1,36 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { View, Text, FlatList, TouchableOpacity, StyleSheet, SafeAreaView } from "react-native"
-import { Ionicons } from "@expo/vector-icons"
-import { useTasks, type Task } from "../../../contexts/tasks/TasksContext"
-import TaskCard from "../../../components/TaskCard"
-import AddTaskModal from "../../../components/AddTaskModal"
-import FilterButtons from "../../../components/FilterButtons"
+import { Ionicons } from "@expo/vector-icons";
+import { useState } from "react";
+import {
+  FlatList,
+  SafeAreaView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
+import AddTaskModal from "../../../components/AddTaskModal";
+import FilterButtons from "../../../components/FilterButtons";
+import TaskCard from "../../../components/TaskCard";
+import { useTasks, type Task } from "../../../contexts/tasks/TasksContext";
 
 const DashboardScreen = ({ navigation }: any) => {
-  const { tasks, loading } = useTasks()
-  const [filter, setFilter] = useState<"all" | "pending" | "completed" | "overdue">("all")
-  const [showAddModal, setShowAddModal] = useState(false)
-  const { filterTasks } = useTasks()
+  const { tasks, loading } = useTasks();
+  const [filter, setFilter] = useState<
+    "all" | "pending" | "completed" | "overdue"
+  >("all");
+  const [showAddModal, setShowAddModal] = useState(false);
+  const { filterTasks } = useTasks();
 
-  const filteredTasks = filterTasks(filter)
+  const filteredTasks = filterTasks(filter);
 
   const renderTask = ({ item }: { item: Task }) => (
-    <TaskCard task={item} onPress={() => navigation.navigate("TaskDetails", { taskId: item.id })} />
-  )
+    <TaskCard
+      task={item}
+      onPress={() => navigation.navigate("TaskDetails", { taskId: item.id })}
+    />
+  );
 
   return (
     <SafeAreaView style={styles.container}>
@@ -49,22 +61,32 @@ const DashboardScreen = ({ navigation }: any) => {
         ListEmptyComponent={
           <View style={styles.emptyState}>
             <Ionicons name="checkmark-circle-outline" size={64} color="#ccc" />
-            <Text style={styles.emptyText}>{filter === "all" ? "No tasks yet" : `No ${filter} tasks`}</Text>
+            <Text style={styles.emptyText}>
+              {filter === "all" ? "No tasks yet" : `No ${filter} tasks`}
+            </Text>
             <Text style={styles.emptySubtext}>
-              {filter === "all" ? "Tap the + button to add your first task" : "Try a different filter"}
+              {filter === "all"
+                ? "Tap the + button to add your first task"
+                : "Try a different filter"}
             </Text>
           </View>
         }
       />
 
-      <TouchableOpacity style={styles.fab} onPress={() => setShowAddModal(true)}>
+      <TouchableOpacity
+        style={styles.fab}
+        onPress={() => setShowAddModal(true)}
+      >
         <Ionicons name="add" size={24} color="#fff" />
       </TouchableOpacity>
 
-      <AddTaskModal visible={showAddModal} onClose={() => setShowAddModal(false)} />
+      <AddTaskModal
+        visible={showAddModal}
+        onClose={() => setShowAddModal(false)}
+      />
     </SafeAreaView>
-  )
-}
+  );
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -118,11 +140,9 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     elevation: 8,
-    shadowColor: "#000",
-    shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.3,
-    shadowRadius: 8,
+    // @ts-ignore
+    boxShadow: "0px 4px 8px rgba(0,0,0,0.3)",
   },
-})
+});
 
-export default DashboardScreen
+export default DashboardScreen;
